@@ -1,0 +1,33 @@
+#!/usr/bin/env python3
+
+class Plant:
+    def __init__(self, name: str, height: float, age: int, growth_rate: float = 0.42) -> None:
+        self.name = name
+        self.height = height
+        self.age_ = age
+        self.growth_rate = growth_rate
+
+    def show(self) -> None:
+        print(f"{self.name}: {round(self.height, 1)}cm, {self.age_} days old")
+
+    def grow(self) -> None:
+        self.height += self.growth_rate
+
+    def age(self) -> None:
+        self.age_ += 1
+
+def main() -> None:
+    init_height = 25.0
+    rose = Plant("Rose", init_height, 30, 0.8)
+
+    print("=== Garden Plant Growth ===")
+    rose.show()
+    for day in range(1, 8):
+        print(f"=== Day {day} ===")
+        rose.grow()
+        rose.age()
+        rose.show()
+    print(f"Growth this week: {round(rose.height - init_height, 1)}cm")
+
+if __name__ == "__main__":
+    main()
