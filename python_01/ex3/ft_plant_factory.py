@@ -30,7 +30,7 @@ def main() -> None:
         print("Created:", end=" ")
         plant.show()
 
-    for _ in range(1, 8):
+    for _ in range(7):
         for plant in plants:
             plant.grow()
             plant.age()
