@@ -20,7 +20,7 @@ def gen_event() -> Generator[tuple[str, str], None, None]:
 
 
 def consume_event(events: list[tuple[str, str]]
-                    ) -> Generator[tuple[str, str], None, None]:
+                  ) -> Generator[tuple[str, str], None, None]:
     while events:
         yield events.pop(random.randint(0, len(events)-1))
 

@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
 class Plant:
-    def __init__(self, name: str, height: float, age: int, growth_rate: float = 0.42) -> None:
+    def __init__(self, name: str, height: float,
+                 age: int, growth_rate: float = 0.42) -> None:
         self.name = name
         self.height = height
         self.age_ = age
@@ -15,6 +16,7 @@ class Plant:
 
     def age(self) -> None:
         self.age_ += 1
+
 
 def main() -> None:
     plants = [
@@ -38,6 +40,7 @@ def main() -> None:
     print(">>> One Week Later <<<")
     for plant in plants:
         plant.show()
+
 
 if __name__ == "__main__":
     main()

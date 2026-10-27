@@ -28,7 +28,8 @@ def main() -> None:
         try:
             quantity: int = int(raw_quantity)
         except ValueError:
-            print(f"Quantity error for '{name}': invalid quantity '{raw_quantity}'")
+            print(f"Quantity error for '{name}': "
+                  f"invalid quantity '{raw_quantity}'")
             continue
 
         inventory[name] = quantity

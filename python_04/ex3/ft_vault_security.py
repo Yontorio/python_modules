@@ -3,16 +3,15 @@
 
 def secure_archive(filename: str, mode: str = "r",
                    content: str = "") -> tuple[bool, str]:
+    if mode not in ("r", "w"):
+        return (False, f"Unsupported action: {mode}")
     try:
         with open(filename, mode) as file:
             if mode == "r":
                 data: str = file.read()
                 return (True, data)
-            elif mode == "w":
-                file.write(content)
-                return (True, "Content successfully written to file")
-            else:
-                return (False, f"Unsupported action: {mode}")
+            file.write(content)
+            return (True, "Content successfully written to file")
     except OSError as e:
         return (False, str(e))
 

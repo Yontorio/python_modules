@@ -9,6 +9,7 @@ def input_temperature(temp_str: str) -> int:
         raise ValueError(f"{temperature}°C is too hot for plants (max 40°C)")
     return temperature
 
+
 def test_temperature() -> None:
     print("=== Garden Temperature Checker ===\n")
 
@@ -39,6 +40,7 @@ def test_temperature() -> None:
         print(f"Caught input_temperature error: {error}")
 
     print("\nAll tests completed - program didn't crash!")
+
 
 if __name__ == "__main__":
     test_temperature()

@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
 class Plant:
-    def __init__(self, name: str, height: float, age: int, growth_rate: float = 0.42) -> None:
+    def __init__(self, name: str, height: float,
+                 age: int, growth_rate: float = 0.42) -> None:
         self.name = name
         self.height = height
         self.age_ = age
@@ -16,6 +17,7 @@ class Plant:
     def age(self) -> None:
         self.age_ += 1
 
+
 def main() -> None:
     init_height = 25.0
     rose = Plant("Rose", init_height, 30, 0.8)
@@ -28,6 +30,7 @@ def main() -> None:
         rose.age()
         rose.show()
     print(f"Growth this week: {round(rose.height - init_height, 1)}cm")
+
 
 if __name__ == "__main__":
     main()

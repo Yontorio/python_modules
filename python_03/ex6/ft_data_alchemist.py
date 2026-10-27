@@ -15,9 +15,9 @@ def main() -> None:
     cap: list[str] = [name.capitalize() for name in PLAYERS]
     print(f"New list with all names capitalized: {cap}")
 
-    init_cap: list[str] = [name for name in PLAYERS if name == name.capitalize()]
+    init_cap: list[str] = [name for name in PLAYERS
+                           if name == name.capitalize()]
     print(f"New list of capitalized names only: {init_cap}")
-
 
     scores: dict[str, int] = {name: randint(1, 1000) for name in cap}
     print(f"\nScore dict: {scores}")

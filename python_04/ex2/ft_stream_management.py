@@ -3,9 +3,11 @@
 import sys
 from typing import IO
 
+
 def error_msg(message: str) -> None:
     sys.stderr.write(f"[STDERR] {message}\n")
     sys.stderr.flush()
+
 
 def main() -> None:
     if len(sys.argv) != 2:

@@ -2,6 +2,7 @@
 
 import math
 
+
 def get_player_pos() -> tuple[float, float, float]:
     while True:
         raw_input: str = input(
@@ -22,12 +23,14 @@ def get_player_pos() -> tuple[float, float, float]:
         else:
             return (coordinates[0], coordinates[1], coordinates[2])
 
+
 def distance(p1: tuple[float, float, float],
              p2: tuple[float, float, float]) -> float:
     return math.sqrt(
         (p2[0] - p1[0]) ** 2 +
         (p2[1] - p1[1]) ** 2 +
         (p2[2] - p1[2]) ** 2)
+
 
 def main() -> None:
     print("=== Game Coordinate System ===")
@@ -41,6 +44,7 @@ def main() -> None:
     second: tuple[float, float, float] = get_player_pos()
     print(f"Distance between the 2 sets of coordinates:"
           f" {round(distance(first, second), 4)}")
+
 
 if __name__ == "__main__":
     main()

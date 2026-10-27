@@ -1,2 +1,3 @@
 def ft_plot_area() -> None:
-	print(f"Plot area: {int(input('Enter length: ')) * int(input('Enter width: '))}")
+    print("Plot area: "
+          f"{int(input('Enter length: ')) * int(input('Enter width: '))}")

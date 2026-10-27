@@ -5,5 +5,7 @@ def ft_seed_inventory(seed_type: str, quantity: int, unit: str) -> None:
         'area': f'covers {quantity} square meters'
     }
     message = unit_messages.get(unit, None)
-    if message is None: print("Unknown unit type")
-    else: print(f'{seed_type.capitalize()} seeds: {message}')
+    if message is None:
+        print("Unknown unit type")
+    else:
+        print(f'{seed_type.capitalize()} seeds: {message}')

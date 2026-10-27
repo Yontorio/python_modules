@@ -1,26 +1,31 @@
 #!/usr/bin/env python3
 
 class GardenError(Exception):
-    def __init__(self, error: str ="Unknown garden error") -> None:
+    def __init__(self, error: str = "Unknown garden error") -> None:
         super().__init__(error)
+
 
 class PlantError(GardenError):
-    def __init__(self, error: str ="Unknown plant error") -> None:
+    def __init__(self, error: str = "Unknown plant error") -> None:
         super().__init__(error)
 
+
 class WaterError(GardenError):
-    def __init__(self, error: str ="Unknown water error") -> None:
+    def __init__(self, error: str = "Unknown water error") -> None:
         super().__init__(error)
+
 
 def check_plant_status(plant_status: bool) -> None:
     if not plant_status:
         raise PlantError("The tomato plant is wilting!")
     print("The tomato plant is healthy!")
 
+
 def check_water_tank(water_status: bool) -> None:
     if not water_status:
         raise WaterError("Not enough water in the tank!")
     print("The water tank is full!")
+
 
 def test_custom_errors() -> None:
     print("=== Custom Garden Errors Demo ===")

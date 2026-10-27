@@ -24,7 +24,7 @@ class Plant:
             )
 
     def __init__(self, name: str, height: float,
-                    age: int, growth_rate: float = 0.42) -> None:
+                 age: int, growth_rate: float = 0.42) -> None:
         self.name = name
         self._height = 0.0
         self._age = 0
@@ -91,7 +91,7 @@ class Plant:
 
 class Flower(Plant):
     def __init__(self, name: str, height: float, age: int,
-                    color: str, growth_rate: float = 0.42) -> None:
+                 color: str, growth_rate: float = 0.42) -> None:
         super().__init__(name, height, age, growth_rate)
         self.color = color
         self._bloomed = False
@@ -110,7 +110,7 @@ class Flower(Plant):
 
 class Tree(Plant):
     def __init__(self, name: str, height: float, age: int,
-                    trunk_diameter: float, growth_rate: float = 0.42) -> None:
+                 trunk_diameter: float, growth_rate: float = 0.42) -> None:
         super().__init__(name, height, age, growth_rate)
         self.trunk_diameter = trunk_diameter
         self.__shade_count = 0
@@ -134,7 +134,7 @@ class Tree(Plant):
 
 class Seed(Flower):
     def __init__(self, name: str, height: float, age: int,
-                    color: str, growth_rate: float = 0.42) -> None:
+                 color: str, growth_rate: float = 0.42) -> None:
         super().__init__(name, height, age, color, growth_rate)
         self.__seed_count = 0
 
@@ -145,7 +145,8 @@ class Seed(Flower):
         if self._bloomed:
             self.__seed_count = seed_count
         else:
-            print(f"{self.name} can't hold seeds right now, it hasn't bloomed yet!")
+            print(f"{self.name} "
+                  "can't hold seeds right now, it hasn't bloomed yet!")
 
     def show(self) -> None:
         super().show()
@@ -153,7 +154,8 @@ class Seed(Flower):
 
 
 class Vegetable(Plant):
-    def __init__(self, name: str, height: float, age: int, harvest_season: str, growth_rate: float = 0.42) -> None:
+    def __init__(self, name: str, height: float, age: int,
+                 harvest_season: str, growth_rate: float = 0.42) -> None:
         super().__init__(name, height, age, growth_rate)
         self.harvest_season = harvest_season
         self.nutritional_value = 0

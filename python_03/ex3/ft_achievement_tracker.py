@@ -19,11 +19,13 @@ ACHIEVEMENTS: list[str] = [
     "Hidden Path Finder",
 ]
 
+
 def gen_player_achievements() -> set[str]:
     length: int = len(ACHIEVEMENTS)
     magic_num: int = length // 3
     random_num: int = random.randint(magic_num, length - magic_num)
     return set(random.sample(ACHIEVEMENTS, random_num))
+
 
 def main() -> None:
     print("=== Achievement Tracker System ===\n")
@@ -51,6 +53,7 @@ def main() -> None:
     for player in players:
         missing: set[str] = all_set.difference(player[1])
         print(f"{player[0]} is missing: {missing}")
+
 
 if __name__ == "__main__":
     main()

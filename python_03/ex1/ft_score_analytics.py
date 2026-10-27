@@ -2,6 +2,7 @@
 
 import sys
 
+
 def main() -> None:
     print("=== Player Score Analytics ===")
     scores: list[int] = []
@@ -26,6 +27,7 @@ def main() -> None:
     print(f"High score: {high}")
     print(f"Low score: {low}")
     print(f"Score range: {high - low}")
+
 
 if __name__ == "__main__":
     main()
