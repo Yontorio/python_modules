@@ -1,5 +1,4 @@
 from ex0.creatures import Creature
-
 from .capabilities import HealCapability, TransformCapability
 
 

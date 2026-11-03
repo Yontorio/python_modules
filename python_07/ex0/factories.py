@@ -1,16 +1,15 @@
 from abc import ABC, abstractmethod
-
-from .creatures import Aquabub, Creature, Flameling, Pyrodon, Torragon
+from .creatures import Creature, Flameling, Pyrodon, Aquabub, Torragon
 
 
 class CreatureFactory(ABC):
     @abstractmethod
     def create_base(self) -> Creature:
-        """Create the base creature for this family."""
+        ...
 
     @abstractmethod
     def create_evolved(self) -> Creature:
-        """Create the evolved creature for this family."""
+        ...
 
 
 class FlameFactory(CreatureFactory):

@@ -5,17 +5,17 @@ from ex1.creatures import HealCapability, TransformCapability
 
 
 class InvalidStrategyError(Exception):
-    """Raised when a strategy is used with an incompatible creature."""
+    pass
 
 
 class BattleStrategy(ABC):
     @abstractmethod
     def is_valid(self, creature: Creature) -> bool:
-        """Return whether this strategy supports the creature."""
+        ...
 
     @abstractmethod
     def act(self, creature: Creature) -> list[str]:
-        """Perform this strategy's actions."""
+        ...
 
 
 class NormalStrategy(BattleStrategy):

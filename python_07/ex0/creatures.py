@@ -8,7 +8,7 @@ class Creature(ABC):
 
     @abstractmethod
     def attack(self) -> str:
-        """Return this creature's attack message."""
+        ...
 
     def describe(self) -> str:
         return f"{self.name} is a {self.creature_type} type Creature"
@@ -40,7 +40,7 @@ class Aquabub(Creature):
 
 class Torragon(Creature):
     def __init__(self) -> None:
-        super().__init__("Torragon", "Water/Dragon")
+        super().__init__("Torragon", "Water")
 
     def attack(self) -> str:
         return "Torragon uses Hydro Pump!"
