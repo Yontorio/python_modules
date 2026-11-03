@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 from ex0.creatures import Creature
-from ex1.creatures import HealCapability, TransformCapability
+from ex1.capabilities import HealCapability, TransformCapability
 
 
 class InvalidStrategyError(Exception):
@@ -20,9 +20,14 @@ class BattleStrategy(ABC):
 
 class NormalStrategy(BattleStrategy):
     def is_valid(self, creature: Creature) -> bool:
-        return True
+        return isinstance(creature, Creature)
 
     def act(self, creature: Creature) -> list[str]:
+        if not isinstance(creature, Creature):
+            raise InvalidStrategyError(
+                f"Invalid Creature '{creature.name}' for this "
+                "normal strategy"
+            )
         return [creature.attack()]
 
 
@@ -31,19 +36,12 @@ class AggressiveStrategy(BattleStrategy):
         return isinstance(creature, TransformCapability)
 
     def act(self, creature: Creature) -> list[str]:
-        if not self.is_valid(creature):
+        if not isinstance(creature, TransformCapability):
             raise InvalidStrategyError(
                 f"Invalid Creature '{creature.name}' for this "
                 "aggressive strategy"
             )
-        capability = creature
-        if not isinstance(capability, TransformCapability):
-            raise InvalidStrategyError("Creature cannot transform")
-        return [
-            capability.transform(),
-            capability.attack(),
-            capability.revert(),
-        ]
+        return [creature.transform(), creature.attack(), creature.revert()]
 
 
 class DefensiveStrategy(BattleStrategy):
@@ -51,12 +49,9 @@ class DefensiveStrategy(BattleStrategy):
         return isinstance(creature, HealCapability)
 
     def act(self, creature: Creature) -> list[str]:
-        if not self.is_valid(creature):
+        if not isinstance(creature, HealCapability):
             raise InvalidStrategyError(
                 f"Invalid Creature '{creature.name}' for this "
                 "defensive strategy"
             )
-        capability = creature
-        if not isinstance(capability, HealCapability):
-            raise InvalidStrategyError("Creature cannot heal")
-        return [capability.attack(), capability.heal()]
+        return [creature.attack(), creature.heal()]
