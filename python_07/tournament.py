@@ -30,17 +30,17 @@ def _fight(
     print(creature_two.describe())
     print(" now fight!")
 
-    # if not first_strategy.is_valid(creature_one):
-    #     raise InvalidStrategyError(
-    #         f"Invalid Creature '{creature_one.name}' for this "
-    #         f"{_strategy_name(first_strategy)} strategy"
-    #     )
+    if not first_strategy.is_valid(creature_one):
+        raise InvalidStrategyError(
+            f"Invalid Creature '{creature_one.name}' for this "
+            f"{_strategy_name(first_strategy)} strategy"
+        )
 
-    # if not second_strategy.is_valid(creature_two):
-    #     raise InvalidStrategyError(
-    #         f"Invalid Creature '{creature_two.name}' for this "
-    #         f"{_strategy_name(second_strategy)} strategy"
-    #     )
+    if not second_strategy.is_valid(creature_two):
+        raise InvalidStrategyError(
+            f"Invalid Creature '{creature_two.name}' for this "
+            f"{_strategy_name(second_strategy)} strategy"
+        )
 
     for action in first_strategy.act(creature_one):
         print(action)
